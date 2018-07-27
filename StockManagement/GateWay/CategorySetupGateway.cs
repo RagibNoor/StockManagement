@@ -61,6 +61,19 @@ namespace StockManagement.GateWay
             reader.Close();
             con.Close();
             return categories;
-        } 
+        }
+
+        public int Update(Category category)
+        {
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "Update   Category_tbl set CategoryName = '" +category.CategoryName + "' where CategoryId='" + category.CategoryId + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            int rowCount = cmd.ExecuteNonQuery();
+            con.Close();
+            return rowCount;
+
+        }
     }
 }

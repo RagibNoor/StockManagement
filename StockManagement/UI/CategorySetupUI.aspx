@@ -26,12 +26,14 @@
          <br/> 
         <div class="row">
              <div class="col-md-12 text-right">
+                 <asp:Button runat="server" Text="Refresh" ID="refreshBtn" CssClass="btn btn-primary " OnClick="refreshBtn_Click"   />
+                 
                  <asp:Button runat="server" Text="Update" ID="UpdateBtn" CssClass="btn btn-primary " OnClick="UpdateBtn_Click"  />
                  <asp:Button runat="server" Text="Save" ID="saveBtn" CssClass="btn btn-primary " OnClick="saveBtn_Click"  />
             </div>
         </div>
         <asp:HiddenField ID="idHiddenField" runat="server" />
-        <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="374px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
+        <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="338px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
             <Columns>
                 <asp:TemplateField>
                      <ItemTemplate>
@@ -47,7 +49,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton Text="Select" ID="lnkSelect" runat="server" CommandName="Select" />
+                        <asp:LinkButton Text="Update" ID="lnkSelect" runat="server" CommandName="Select" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

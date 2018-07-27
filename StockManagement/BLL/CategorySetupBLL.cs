@@ -34,6 +34,11 @@ namespace StockManagement.BLL
         public List<Category> GetCategories()
         {
             return categorySetupGateway.GetCategories();
-        } 
+        }
+
+        public int Update(Category category)
+        {
+            return categorySetupGateway.Update(category);
+        }
     }
 }

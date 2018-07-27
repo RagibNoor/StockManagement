@@ -19,12 +19,13 @@ namespace StockManagement.UI
             {
                 UpdateBtn.Enabled = false;
                 saveBtn.Enabled = true;
-                List<Category> categories = categorySetupBll.GetCategories();
-                categoryGridView.DataSource = categories;
-                categoryGridView.DataBind();
+               
                
             }
-
+            List<Category> categories = categorySetupBll.GetCategories();
+            categoryGridView.DataSource = categories;
+            categoryGridView.DataBind();
+           
             
         }
 
@@ -49,7 +50,14 @@ namespace StockManagement.UI
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('updated');</script>");
+            Category category = new Category();
+            category.CategoryName = addCategoryTextBox.Text;
+            category.CategoryId = Convert.ToInt32(idHiddenField.Value);
+            if (categorySetupBll.Update(category)>0)
+            {
+                Response.Write("<script>alert('updated');</script>");    
+            }
+            
             UpdateBtn.Enabled = false;
             saveBtn.Enabled = true;
         }
@@ -57,6 +65,11 @@ namespace StockManagement.UI
         protected void homeBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomeUI.aspx");
+        }
+
+        protected void refreshBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
         }
 
        
