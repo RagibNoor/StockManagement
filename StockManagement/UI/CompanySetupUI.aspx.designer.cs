@@ -10,7 +10,7 @@
 namespace StockManagement.UI {
     
     
-    public partial class CategorySetupUI {
+    public partial class CompanySetupUI {
         
         /// <summary>
         /// form1 control.
@@ -22,49 +22,49 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// addCategoryTextBox control.
+        /// addCompanyTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addCategoryTextBox;
+        protected global::System.Web.UI.WebControls.TextBox addCompanyTextBox;
         
         /// <summary>
-        /// UpdateBtn control.
+        /// UpdateCompanyBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateBtn;
+        protected global::System.Web.UI.WebControls.Button UpdateCompanyBtn;
         
         /// <summary>
-        /// saveBtn control.
+        /// saveCompanyBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveBtn;
+        protected global::System.Web.UI.WebControls.Button saveCompanyBtn;
         
         /// <summary>
-        /// idHiddenField control.
+        /// CompanyIdHiddenField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField idHiddenField;
+        protected global::System.Web.UI.WebControls.HiddenField CompanyIdHiddenField;
         
         /// <summary>
-        /// categoryGridView control.
+        /// CompanyGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView categoryGridView;
+        protected global::System.Web.UI.WebControls.GridView CompanyGridView;
         
         /// <summary>
         /// homeBtn control.

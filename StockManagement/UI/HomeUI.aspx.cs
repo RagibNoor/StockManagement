@@ -18,5 +18,10 @@ namespace StockManagement.UI
         {
             Response.Redirect("CategorySetupUI.aspx");
         }
+
+        protected void companySetupBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CompanySetupUI.aspx");
+        }
     }
 }

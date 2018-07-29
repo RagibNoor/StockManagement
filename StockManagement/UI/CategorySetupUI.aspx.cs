@@ -12,6 +12,7 @@ namespace StockManagement.UI
     public partial class CategorySetupUI : System.Web.UI.Page
     {
         CategorySetupBLL categorySetupBll = new CategorySetupBLL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -33,9 +34,19 @@ namespace StockManagement.UI
         {
             Category category = new Category();
             category.CategoryName = addCategoryTextBox.Text;
-            
+            if (string.IsNullOrEmpty(addCategoryTextBox.Text))
+            {
+                Response.Write("<script>alert('Input Field is Empty');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('" + categorySetupBll.Save(category) + "');</script>");
+            }
 
-            Response.Write("<script>alert('"+categorySetupBll.Save(category)+"');</script>");
+            
+            List<Category> categories = categorySetupBll.GetCategories();
+            categoryGridView.DataSource = categories;
+            categoryGridView.DataBind();
         }
 
         protected void categoryGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,11 +64,22 @@ namespace StockManagement.UI
             Category category = new Category();
             category.CategoryName = addCategoryTextBox.Text;
             category.CategoryId = Convert.ToInt32(idHiddenField.Value);
-            if (categorySetupBll.Update(category)>0)
+            if (string.IsNullOrEmpty(addCategoryTextBox.Text))
             {
-                Response.Write("<script>alert('updated');</script>");    
+                Response.Write("<script>alert('Input Field is Empty');</script>");
             }
-            
+            else
+            {
+                if (categorySetupBll.Update(category) > 0)
+                {
+                    Response.Write("<script>alert('updated');</script>");
+                }
+            }
+
+           
+            List<Category> categories = categorySetupBll.GetCategories();
+            categoryGridView.DataSource = categories;
+            categoryGridView.DataBind();
             UpdateBtn.Enabled = false;
             saveBtn.Enabled = true;
         }
@@ -67,10 +89,7 @@ namespace StockManagement.UI
             Response.Redirect("HomeUI.aspx");
         }
 
-        protected void refreshBtn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.RawUrl);
-        }
+        
 
        
 

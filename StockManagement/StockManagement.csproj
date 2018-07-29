@@ -67,16 +67,20 @@
   <ItemGroup>
     <Content Include="Assets\css\myStyle.css" />
     <Content Include="UI\CategorySetupUI.aspx" />
+    <Content Include="UI\CompanySetupUI.aspx" />
     <Content Include="UI\HomeUI.aspx" />
     <Content Include="UI\LogInUI.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CategorySetupBLL.cs" />
+    <Compile Include="BLL\CompanySetupBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="GateWay\CategorySetupGateway.cs" />
+    <Compile Include="GateWay\CompanySetupGateway.cs" />
     <Compile Include="GateWay\LoginGateway.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\CategorySetupUI.aspx.cs">
@@ -85,6 +89,13 @@
     </Compile>
     <Compile Include="UI\CategorySetupUI.aspx.designer.cs">
       <DependentUpon>CategorySetupUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CompanySetupUI.aspx.cs">
+      <DependentUpon>CompanySetupUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CompanySetupUI.aspx.designer.cs">
+      <DependentUpon>CompanySetupUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\HomeUI.aspx.cs">
       <DependentUpon>HomeUI.aspx</DependentUpon>

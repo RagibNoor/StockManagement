@@ -13,7 +13,7 @@
     <div class="login-form">
        
          <asp:Button runat="server" Text="Category Setup" ID="CategorySetupBtn" CssClass="btn btn-primary btn-block" OnClick="CategorySetupBtn_Click"/>
-        <asp:Button runat="server" Text="Company Setup" ID="companySetupBtn" CssClass="btn btn-primary btn-block"/>
+        <asp:Button runat="server" Text="Company Setup" ID="companySetupBtn" CssClass="btn btn-primary btn-block" OnClick="companySetupBtn_Click"/>
         <asp:Button runat="server" Text="Item Setup" ID="itemSetupBtn" CssClass="btn btn-primary btn-block"/>
         <asp:Button runat="server" Text="Stock In" ID="StockInBtn" CssClass="btn btn-primary btn-block"/>
         <asp:Button runat="server" Text="Stock Out" ID="StockOutBtn" CssClass="btn btn-primary btn-block"/>

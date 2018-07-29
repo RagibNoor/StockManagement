@@ -1,17 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategorySetupUI.aspx.cs" Inherits="StockManagement.UI.CategorySetupUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompanySetupUI.aspx.cs" Inherits="StockManagement.UI.CompanySetupUI" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Category Setup</title>
+    <title>Company Setup</title>
      <link rel="stylesheet" href="../Assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="../Assets/css/myStyle.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="login-form text-center">
-         <h2 class="text-center">Category Setup</h2>
+     <div class="login-form text-center">
+         <h2 class="text-center">Company Setup</h2>
         <hr/>
         <div class="row">
             <div class="col-md-4">
@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:TextBox ID="addCategoryTextBox"  runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="addCompanyTextBox"  runat="server" CssClass="form-control"></asp:TextBox>
             </div>
            
         </div>
@@ -28,23 +28,23 @@
              <div class="col-md-12 text-right">
                 
                  
-                 <asp:Button runat="server" Text="Update" ID="UpdateBtn" CssClass="btn btn-primary " OnClick="UpdateBtn_Click"  />
-                 <asp:Button runat="server" Text="Save" ID="saveBtn" CssClass="btn btn-primary " OnClick="saveBtn_Click"  />
+                 <asp:Button runat="server" Text="Update" ID="UpdateCompanyBtn" CssClass="btn btn-primary " OnClick="UpdateCompanyBtn_Click"   />
+                 <asp:Button runat="server" Text="Save" ID="saveCompanyBtn" CssClass="btn btn-primary " OnClick="saveCompanyBtn_Click"   />
             </div>
         </div>
-        <asp:HiddenField ID="idHiddenField" runat="server" />
-        <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="338px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
+        <asp:HiddenField ID="CompanyIdHiddenField" runat="server" />
+        <asp:GridView ID="CompanyGridView" runat="server" AutoGenerateColumns="False" Width="338px" OnSelectedIndexChanged="CompanyGridView_SelectedIndexChanged"   >
             <Columns>
                 <asp:TemplateField>
                      <ItemTemplate>
                         
-                          <asp:Label runat="server" ID="categoryIdLabel" Text='<%#Eval("CategoryId") %>' ></asp:Label>
+                          <asp:Label runat="server" ID="companyIdLabel" Text='<%#Eval("CompanyId") %>' ></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Category Name">
                     <ItemTemplate>
-                       <asp:Label runat="server" ID="categoryNameLabel" Text='<%#Eval("CategoryName") %>' ></asp:Label>
+                       <asp:Label runat="server" ID="companyNameLabel" Text='<%#Eval("CompanyName") %>' ></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField>
