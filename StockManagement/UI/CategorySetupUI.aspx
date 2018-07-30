@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategorySetupUI.aspx.cs" Inherits="StockManagement.UI.CategorySetupUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategorySetupUI.aspx.cs" Inherits="StockManagement.UI.CategorySetupUI" MasterPageFile="../Site.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Category Setup</title>
-     <link rel="stylesheet" href="../Assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../Assets/css/myStyle.css"/>
-</head>
-<body>
+<asp:Content runat="server" ContentPlaceHolderID="body">
     <form id="form1" runat="server">
     <div class="login-form text-center">
          <h2 class="text-center">Category Setup</h2>
@@ -33,7 +25,7 @@
             </div>
         </div>
         <asp:HiddenField ID="idHiddenField" runat="server" />
-        <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="338px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
+        <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="455px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
             <Columns>
                 <asp:TemplateField>
                      <ItemTemplate>
@@ -59,5 +51,4 @@
          
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

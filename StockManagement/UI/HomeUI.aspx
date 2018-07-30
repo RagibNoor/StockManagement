@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeUI.aspx.cs" Inherits="StockManagement.UI.HomeUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeUI.aspx.cs" Title="Home" Inherits="StockManagement.UI.HomeUI" MasterPageFile="../Site.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Home</title>
-     <link rel="stylesheet" href="../Assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../Assets/css/myStyle.css"/>
-</head>
-<body>
+<asp:Content runat="server" ContentPlaceHolderID="body">
     <form id="form1" runat="server">
     <div class="login-form">
        
@@ -22,5 +14,4 @@
     
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\js\Script.js" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -69,7 +71,12 @@
     <Content Include="UI\CategorySetupUI.aspx" />
     <Content Include="UI\CompanySetupUI.aspx" />
     <Content Include="UI\HomeUI.aspx" />
+    <Content Include="UI\ItemSetupUI.aspx" />
     <Content Include="UI\LogInUI.aspx" />
+    <Content Include="UI\SearchItemUI.aspx" />
+    <Content Include="UI\StockInUI.aspx" />
+    <Content Include="UI\StockOutUI.aspx" />
+    <Content Include="UI\ViewSalesUI.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +90,13 @@
     <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="UI\CategorySetupUI.aspx.cs">
       <DependentUpon>CategorySetupUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,12 +118,47 @@
     <Compile Include="UI\HomeUI.aspx.designer.cs">
       <DependentUpon>HomeUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\ItemSetupUI.aspx.cs">
+      <DependentUpon>ItemSetupUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ItemSetupUI.aspx.designer.cs">
+      <DependentUpon>ItemSetupUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\LogInUI.aspx.cs">
       <DependentUpon>LogInUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\LogInUI.aspx.designer.cs">
       <DependentUpon>LogInUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchItemUI.aspx.cs">
+      <DependentUpon>SearchItemUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchItemUI.aspx.designer.cs">
+      <DependentUpon>SearchItemUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StockInUI.aspx.cs">
+      <DependentUpon>StockInUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\StockInUI.aspx.designer.cs">
+      <DependentUpon>StockInUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StockOutUI.aspx.cs">
+      <DependentUpon>StockOutUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\StockOutUI.aspx.designer.cs">
+      <DependentUpon>StockOutUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewSalesUI.aspx.cs">
+      <DependentUpon>ViewSalesUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewSalesUI.aspx.designer.cs">
+      <DependentUpon>ViewSalesUI.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

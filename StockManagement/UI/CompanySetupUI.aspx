@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompanySetupUI.aspx.cs" Inherits="StockManagement.UI.CompanySetupUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompanySetupUI.aspx.cs" Inherits="StockManagement.UI.CompanySetupUI" MasterPageFile="../Site.Master" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Company Setup</title>
-     <link rel="stylesheet" href="../Assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../Assets/css/myStyle.css"/>
-</head>
-<body>
+<asp:Content runat="server" ContentPlaceHolderID="body">
     <form id="form1" runat="server">
      <div class="login-form text-center">
          <h2 class="text-center">Company Setup</h2>
@@ -33,7 +25,7 @@
             </div>
         </div>
         <asp:HiddenField ID="CompanyIdHiddenField" runat="server" />
-        <asp:GridView ID="CompanyGridView" runat="server" AutoGenerateColumns="False" Width="338px" OnSelectedIndexChanged="CompanyGridView_SelectedIndexChanged"   >
+        <asp:GridView ID="CompanyGridView" runat="server" AutoGenerateColumns="False" Width="454px" OnSelectedIndexChanged="CompanyGridView_SelectedIndexChanged"   >
             <Columns>
                 <asp:TemplateField>
                      <ItemTemplate>
@@ -59,5 +51,4 @@
          
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

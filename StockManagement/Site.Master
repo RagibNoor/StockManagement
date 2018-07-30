@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="StockManagement.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+      <link rel="stylesheet" href="Assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="Assets/css/myStyle.css"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+  <ul class="nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="CategorySetupUI.aspx">Category Setup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="CompanySetupUI.aspx">Company Setup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="ItemSetupUI.aspx">Item Setup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="StockInUI.aspx">Stock In</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link " href="StockOutUI.aspx">Stock Out</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link " href="SearchItemUI.aspx">Search Item</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link " href="ViewSalesUI.aspx">View Sales</a>
+    </li>
+  </ul>
+</nav>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    <script src="../Assets/js/jquery.min.js"></script>
+   <script src="../Assets/js/bootstrap.min.js"></script>
+    <script src="../Assets/js/Script.js"></script>
+</body>
+</html>
