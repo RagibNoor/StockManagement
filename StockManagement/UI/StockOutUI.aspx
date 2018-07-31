@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:DropDownList ID="companyDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="companyDropDownList" AutoPostBack="True" runat="server" CssClass="form-control" OnSelectedIndexChanged="companyDropDownList_SelectedIndexChanged"></asp:DropDownList>
             </div>
            
         </div>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:DropDownList ID="itemDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="itemDropDownList" AutoPostBack="True" runat="server" CssClass="form-control" OnSelectedIndexChanged="itemDropDownList_SelectedIndexChanged"></asp:DropDownList>
             </div>
            
         </div>
@@ -51,7 +51,7 @@
          <br/>
         <div class="row">
             <div class="col-md-4">
-                Stock In Quantity :
+                Stock Out Quantity :
             </div>
 
             <div class="col-md-8">

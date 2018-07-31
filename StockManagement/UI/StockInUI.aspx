@@ -11,7 +11,9 @@
             </div>
 
             <div class="col-md-8">
-                <asp:DropDownList ID="companyDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="companyDropDownList" runat="server" AutoPostBack="True" CssClass="form-control" OnSelectedIndexChanged="companyDropDownList_SelectedIndexChanged">
+                   
+                </asp:DropDownList>
             </div>
            
         </div>
@@ -22,7 +24,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:DropDownList ID="itemDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
+                <asp:DropDownList ID="itemDropDownList" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="itemDropDownList_SelectedIndexChanged"></asp:DropDownList>
             </div>
            
         </div>
@@ -62,7 +64,8 @@
          <br/>
         <div class="row">
              <div class="col-md-12 text-right">
-                 <asp:Button ID="stockInSaveButton" runat="server" Text="Save" CssClass="btn btn-primary " />
+                 <asp:HiddenField ID="IDHiddenField" runat="server" />
+                 <asp:Button ID="stockInSaveButton" runat="server" Text="Save" CssClass="btn btn-primary " OnClick="stockInSaveButton_Click" />
             </div>
         </div>
     </div>

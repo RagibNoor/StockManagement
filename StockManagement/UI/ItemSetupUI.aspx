@@ -12,7 +12,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:DropDownList ID="categoryDropDownList" runat="server" CssClass="form-control"/>
+                <asp:DropDownList ID="categoryDropDownList" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
            
         </div>
@@ -52,7 +52,7 @@
          <br/> 
         <div class="row">
              <div class="col-md-12 text-right">
-                 <asp:Button runat="server" Text="Save" ID="itemSaveButton" CssClass="btn btn-primary "  />
+                 <asp:Button runat="server" Text="Save" ID="itemSaveButton" CssClass="btn btn-primary " OnClick="itemSaveButton_Click"  />
             </div>
         </div>
          </div>
