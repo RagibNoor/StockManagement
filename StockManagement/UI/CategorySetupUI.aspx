@@ -27,10 +27,19 @@
         <asp:HiddenField ID="idHiddenField" runat="server" />
         <asp:GridView ID="categoryGridView" runat="server" AutoGenerateColumns="False" Width="455px" OnSelectedIndexChanged="categoryGridView_SelectedIndexChanged"    >
             <Columns>
-                <asp:TemplateField>
+                <asp:TemplateField Visible="False">
                      <ItemTemplate>
                         
                           <asp:Label runat="server" ID="categoryIdLabel" Text='<%#Eval("CategoryId") %>' ></asp:Label>
+                    </ItemTemplate>
+                    
+                    
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Serial No">
+                     <ItemTemplate>
+                       
+                        <%#Container.DataItemIndex+1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
 

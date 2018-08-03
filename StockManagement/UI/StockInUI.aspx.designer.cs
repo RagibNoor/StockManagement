@@ -76,6 +76,15 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.WebControls.HiddenField IDHiddenField;
         
         /// <summary>
+        /// companyHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField companyHiddenField;
+        
+        /// <summary>
         /// stockInSaveButton control.
         /// </summary>
         /// <remarks>

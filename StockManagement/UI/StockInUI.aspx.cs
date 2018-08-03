@@ -18,12 +18,16 @@ namespace StockManagement.UI
             {
                 companyDropDownList.DataSource = itemSetupBll.GetCompanies();
                 companyDropDownList.DataTextField = "CompanyName";
-                companyDropDownList.DataValueField = "CompanyName";
+                companyDropDownList.DataValueField = "CompanyId";
                 companyDropDownList.DataBind();
-
-               
-
             }
+
+            if (companyHiddenField.Value != Request.Form[companyDropDownList.UniqueID])
+            {
+                companyDropDownList_SelectedIndexChanged(sender,e);
+                companyHiddenField.Value = Request.Form[companyDropDownList.UniqueID];
+            }
+            ;
         }
 
         protected void companyDropDownList_SelectedIndexChanged(object sender, EventArgs e)

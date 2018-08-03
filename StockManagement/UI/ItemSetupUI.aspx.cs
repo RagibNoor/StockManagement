@@ -19,12 +19,12 @@ namespace StockManagement.UI
             {
                 companyDropDownList.DataSource = itemSetupBll.GetCompanies();
                 companyDropDownList.DataTextField = "CompanyName";
-                companyDropDownList.DataValueField = "CompanyName";
+                companyDropDownList.DataValueField = "CompanyId";
                 companyDropDownList.DataBind();
 
                 categoryDropDownList.DataSource = itemSetupBll.GetCategories();
                 categoryDropDownList.DataTextField = "CategoryName";
-                categoryDropDownList.DataValueField = "CategoryName";
+                categoryDropDownList.DataValueField = "CategoryID";
                 categoryDropDownList.DataBind();
                 reorderTextBox.Text = "0";
 
@@ -38,8 +38,8 @@ namespace StockManagement.UI
         {
             Item item = new Item();
             item.ItemName = itemNameTextBox.Text;
-            item.ItemCompany = companyDropDownList.SelectedValue;
-            item.ItemCategory = categoryDropDownList.SelectedValue;
+            item.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
+            item.CategoryId = Convert.ToInt32(categoryDropDownList.SelectedValue);
             item.Reorder = Convert.ToInt32(reorderTextBox.Text);
             item.StockIn = 0;
             item.StockOut = 0;

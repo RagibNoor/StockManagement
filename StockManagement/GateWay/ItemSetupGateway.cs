@@ -17,8 +17,8 @@ namespace StockManagement.GateWay
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
 
-            string query = "insert into Item_tbl(ItemName,ItemCompany,ItemCategory,Stockin,StockOut,Reorder) " +
-                           "values('" + item.ItemName + "','" + item.ItemCompany + "','" + item.ItemCategory + "'," + item.StockIn + "," + item.StockOut + "," + item.Reorder+")";
+            string query = "insert into Item_tbl(ItemName,CompanyID,CategoryID,Stockin,StockOut,Reorder) " +
+                           "values('" + item.ItemName + "','" + item.CompanyId + "','" + item.CategoryId + "'," + item.StockIn + "," + item.StockOut + "," + item.Reorder+")";
 
             SqlCommand cmd = new SqlCommand(query, con);
             int rowCount = cmd.ExecuteNonQuery();
@@ -38,11 +38,13 @@ namespace StockManagement.GateWay
             return rowCount;
         }
 
-        public List<Item> GeItems(string company)
+        public List<Item> GeItems(string companyID)
+
         {
+            int companyId = Convert.ToInt32(companyID);
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
-            string query = "select * from  Item_tbl where ItemCompany ='"+company+"'";
+            string query = "select * from  Item_tbl where CompanyID ='"+companyId+"'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Item> items = new List<Item>();
@@ -50,8 +52,8 @@ namespace StockManagement.GateWay
             {
                 Item item = new Item();
                 item.ItemName = reader["ItemName"].ToString();
-                item.ItemCategory = reader["ItemCategory"].ToString();
-                item.ItemCompany = reader["ItemCompany"].ToString();
+                item.CategoryId = Convert.ToInt32(reader["CategoryID"].ToString());
+                item.CompanyId = Convert.ToInt32(reader["CompanyID"].ToString());
                 item.Reorder = (int)reader["Reorder"];
                 item.StockIn = (int)reader["StockIn"];
                 item.StockOut = (int)reader["StockOut"];
@@ -77,8 +79,7 @@ namespace StockManagement.GateWay
             {
                 
                 item.ItemName = reader["ItemName"].ToString();
-                item.ItemCategory = reader["ItemCategory"].ToString();
-                item.ItemCompany = reader["ItemCompany"].ToString();
+                
                 item.Reorder = (int)reader["Reorder"];
                 item.StockIn = (int)reader["StockIn"];
                 item.StockOut = (int)reader["StockOut"];

@@ -27,10 +27,16 @@
         <asp:HiddenField ID="CompanyIdHiddenField" runat="server" />
         <asp:GridView ID="CompanyGridView" runat="server" AutoGenerateColumns="False" Width="454px" OnSelectedIndexChanged="CompanyGridView_SelectedIndexChanged"   >
             <Columns>
-                <asp:TemplateField>
+                <asp:TemplateField Visible="False">
                      <ItemTemplate>
                         
                           <asp:Label runat="server" ID="companyIdLabel" Text='<%#Eval("CompanyId") %>' ></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Serial No">
+                     <ItemTemplate>
+                       
+                        <%#Container.DataItemIndex+1 %>
                     </ItemTemplate>
                 </asp:TemplateField>
 

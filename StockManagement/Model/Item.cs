@@ -8,8 +8,8 @@ namespace StockManagement.Model
     public class Item
     {
         public String ItemName { get; set; }
-        public string ItemCategory { get; set; }
-        public string ItemCompany { get; set; }
+        public int CategoryId { get; set; }
+        public int CompanyId { get; set; }
         public int Reorder { get; set; }
         public int StockIn { get; set; }
 
