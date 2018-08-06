@@ -1,8 +1,9 @@
 ﻿
-$(function () {
-    $(".nav .nav-link").on("click", function () {
-        $(".nav").find(".active").removeClass("active");
-        $(this).addClass("active");
-        Console.log("IN");
+$(document).ready(function() {
+    $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+    $('.datepicker').datepicker({
+        startDate: '-3000d'
     });
 });
+
+

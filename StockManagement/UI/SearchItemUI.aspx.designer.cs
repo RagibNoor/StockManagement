@@ -22,22 +22,22 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// companySearchDropDownList control.
+        /// companyDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList companySearchDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList companyDropDownList;
         
         /// <summary>
-        /// itemSearchDropDownList control.
+        /// categoryDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList itemSearchDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList categoryDropDownList;
         
         /// <summary>
         /// searchItemButton control.
@@ -56,5 +56,23 @@ namespace StockManagement.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView searchItemGridView;
+        
+        /// <summary>
+        /// CompanyHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CompanyHiddenField;
+        
+        /// <summary>
+        /// DownLoad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DownLoad;
     }
 }

@@ -5,12 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
       <link rel="stylesheet" href="Assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css"/>
     <link rel="stylesheet" href="Assets/css/myStyle.css"/>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
   <ul class="nav">
     <li class="nav-item active">
@@ -42,6 +44,9 @@
 
     <script src="../Assets/js/jquery.min.js"></script>
    <script src="../Assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
     <script src="../Assets/js/Script.js"></script>
+
 </body>
 </html>

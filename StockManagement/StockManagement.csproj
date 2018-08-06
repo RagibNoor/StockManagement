@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>BLL\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -70,7 +73,6 @@
     <Content Include="Assets\css\myStyle.css" />
     <Content Include="UI\CategorySetupUI.aspx" />
     <Content Include="UI\CompanySetupUI.aspx" />
-    <Content Include="UI\HomeUI.aspx" />
     <Content Include="UI\ItemSetupUI.aspx" />
     <Content Include="UI\LogInUI.aspx" />
     <Content Include="UI\SearchItemUI.aspx" />
@@ -84,10 +86,12 @@
     <Compile Include="BLL\CompanySetupBLL.cs" />
     <Compile Include="BLL\ItemSetupBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\ViewSalesBLL.cs" />
     <Compile Include="GateWay\CategorySetupGateway.cs" />
     <Compile Include="GateWay\CompanySetupGateway.cs" />
     <Compile Include="GateWay\ItemSetupGateway.cs" />
     <Compile Include="GateWay\LoginGateway.cs" />
+    <Compile Include="GateWay\ViewSalesGateway.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Company.cs" />
     <Compile Include="Model\Item.cs" />
@@ -113,13 +117,6 @@
     </Compile>
     <Compile Include="UI\CompanySetupUI.aspx.designer.cs">
       <DependentUpon>CompanySetupUI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI\HomeUI.aspx.cs">
-      <DependentUpon>HomeUI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\HomeUI.aspx.designer.cs">
-      <DependentUpon>HomeUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ItemSetupUI.aspx.cs">
       <DependentUpon>ItemSetupUI.aspx</DependentUpon>

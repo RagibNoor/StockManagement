@@ -56,7 +56,6 @@
             </Columns>
          </asp:GridView>
         <br/>
-        <asp:Button runat="server" Text="Home" ID="homeBtn" CssClass="btn btn-primary btn-block " OnClick="homeBtn_Click"   />
          
     </div>
     </form>

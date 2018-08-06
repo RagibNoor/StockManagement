@@ -26,6 +26,23 @@ namespace StockManagement.GateWay
             return rowCount;
         }
 
+        public int StockOut(List<Item> items , string reason)
+        {
+            int rowCount = 0;
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            foreach (var item in items)
+            {
+                string query = "Insert into stockOut_tbl(ItemId,Reason,StockOutdate,StockOutQuantity)" +
+                               "Values( " + item.ItemId + ",'" + reason + "','" + item.StockOutDate + "','"+item.StockOut+"') ";
+                SqlCommand cmd = new SqlCommand(query, con);
+                rowCount = cmd.ExecuteNonQuery();
+
+            }
+            con.Close();
+            return rowCount;
+        }
+
         public int UpdateQuantity(Item item)
         {
             SqlConnection con = new SqlConnection(ConnectinString);
@@ -48,6 +65,37 @@ namespace StockManagement.GateWay
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Item> items = new List<Item>();
+            Item itemD = new Item();
+            itemD.ItemName = "----Select----";
+            items.Add(itemD);
+            while (reader.Read())
+            {
+                Item item = new Item();    
+                item.ItemName = reader["ItemName"].ToString();
+                item.CategoryId = Convert.ToInt32(reader["CategoryID"].ToString());
+                item.CompanyId = Convert.ToInt32(reader["CompanyID"].ToString());
+                item.Reorder = (int)reader["Reorder"];
+                item.StockIn = (int)reader["StockIn"];
+                item.StockOut = (int)reader["StockOut"];
+                item.ItemId = (int) reader["ItemID"];
+               
+
+                items.Add(item);
+
+            }
+            reader.Close();
+            con.Close();
+            return items;
+        }
+        public List<Item> GetSearchItems(int companyId , int categoryId )
+        {
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "select * from  ItemAllInfo where CompanyID ='" + companyId + "' and CategoryId='"+categoryId+"'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Item> items = new List<Item>();
+           
             while (reader.Read())
             {
                 Item item = new Item();
@@ -57,8 +105,10 @@ namespace StockManagement.GateWay
                 item.Reorder = (int)reader["Reorder"];
                 item.StockIn = (int)reader["StockIn"];
                 item.StockOut = (int)reader["StockOut"];
-                item.ItemId = (int) reader["ItemID"];
-               
+                item.ItemId = (int)reader["ItemID"];
+                item.CompanyName = (string) reader["CompanyName"];
+                item.CategoryName = (string) reader["CategoryName"];
+
 
                 items.Add(item);
 

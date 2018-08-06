@@ -5,7 +5,8 @@ using System.Web;
 
 namespace StockManagement.Model
 {
-    public class Item
+    [Serializable]
+    public class Item 
     {
         public String ItemName { get; set; }
         public int CategoryId { get; set; }
@@ -15,5 +16,8 @@ namespace StockManagement.Model
 
         public int StockOut { get; set; }
         public int ItemId { get; set; }
+        public string CompanyName { get; set; }
+        public string CategoryName { get; set; }
+        public string StockOutDate { get; set; }
     }
 }

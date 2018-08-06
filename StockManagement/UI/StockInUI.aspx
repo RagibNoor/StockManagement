@@ -65,6 +65,7 @@
         <div class="row">
              <div class="col-md-12 text-right">
                  <asp:HiddenField ID="IDHiddenField" runat="server" />
+                 <asp:HiddenField ID="ItemHiddenField" runat="server"  />
                  <asp:HiddenField ID="companyHiddenField" runat="server" />
                  <asp:Button ID="stockInSaveButton" runat="server" Text="Save" CssClass="btn btn-primary " OnClick="stockInSaveButton_Click" />
             </div>

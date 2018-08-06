@@ -25,7 +25,7 @@ namespace StockManagement.UI
 
             if (loginBll.CheckUserNamePassword(user))
             {
-                Response.Redirect("HomeUI.aspx");
+                Response.Redirect("CategorySetupUI.aspx");
             }
             Response.Write("<script>alert('Invalid UserName or Password');</script>");
             

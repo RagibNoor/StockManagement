@@ -58,13 +58,13 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.WebControls.TextBox quantityTextBox;
         
         /// <summary>
-        /// stockQuantityTextBox control.
+        /// stockOutQuantityTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stockQuantityTextBox;
+        protected global::System.Web.UI.WebControls.TextBox stockOutQuantityTextBox;
         
         /// <summary>
         /// stockOutAddButton control.
@@ -83,6 +83,33 @@ namespace StockManagement.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView stockOutGridView;
+        
+        /// <summary>
+        /// IDHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField IDHiddenField;
+        
+        /// <summary>
+        /// CompanyHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CompanyHiddenField;
+        
+        /// <summary>
+        /// HiddenField3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField3;
         
         /// <summary>
         /// sellButton control.

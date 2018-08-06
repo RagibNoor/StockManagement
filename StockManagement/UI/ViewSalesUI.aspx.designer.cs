@@ -22,22 +22,22 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// fromDateDropDownList control.
+        /// StartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList fromDateDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox StartDate;
         
         /// <summary>
-        /// toDateDownList control.
+        /// EndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList toDateDownList;
+        protected global::System.Web.UI.WebControls.TextBox EndDate;
         
         /// <summary>
         /// viewSearchItemButton control.
@@ -56,5 +56,14 @@ namespace StockManagement.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView viewSearchItemGridView;
+        
+        /// <summary>
+        /// DownloadBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DownloadBtn;
     }
 }

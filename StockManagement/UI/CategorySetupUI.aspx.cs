@@ -84,11 +84,7 @@ namespace StockManagement.UI
             saveBtn.Enabled = true;
         }
 
-        protected void homeBtn_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("HomeUI.aspx");
-        }
-
+       
         
 
        

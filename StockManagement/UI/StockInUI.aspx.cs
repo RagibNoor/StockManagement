@@ -20,19 +20,20 @@ namespace StockManagement.UI
                 companyDropDownList.DataTextField = "CompanyName";
                 companyDropDownList.DataValueField = "CompanyId";
                 companyDropDownList.DataBind();
+                if (companyHiddenField.Value != Request.Form[companyDropDownList.UniqueID])
+                {
+                    companyDropDownList_SelectedIndexChanged(sender, e);
+                    companyHiddenField.Value = Request.Form[companyDropDownList.UniqueID];
+                }
             }
 
-            if (companyHiddenField.Value != Request.Form[companyDropDownList.UniqueID])
-            {
-                companyDropDownList_SelectedIndexChanged(sender,e);
-                companyHiddenField.Value = Request.Form[companyDropDownList.UniqueID];
-            }
+           
             ;
         }
 
         protected void companyDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('"+companyDropDownList.SelectedValue+"');</script>");
+           // Response.Write("<script>alert('"+companyDropDownList.SelectedValue+"');</script>");
 
 
             itemDropDownList.DataSource = itemSetupBll.GetItems(companyDropDownList.SelectedValue);
@@ -40,15 +41,28 @@ namespace StockManagement.UI
             itemDropDownList.DataValueField = "ItemId";
             itemDropDownList.DataBind();
 
+            quantityTextBox.Text = null;
+            reorderLevelTextBox.Text = null;
+
+            //if (ItemHiddenField.Value != Request.Form[itemDropDownList.UniqueID])
+            //{
+            //    itemDropDownList_SelectedIndexChanged(sender,e);
+            //    ItemHiddenField.Value = Request.Form[itemDropDownList.UniqueID];
+            //}
+
         }
 
         protected void itemDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int itemID = Convert.ToInt32(itemDropDownList.SelectedValue);
-            Item item = itemSetupBll.GetReorderAndAmmount(itemID);
-            reorderLevelTextBox.Text = item.Reorder.ToString();
-            quantityTextBox.Text = item.StockIn.ToString();
-            IDHiddenField.Value = itemID.ToString();
+            if (itemDropDownList.SelectedItem.Text != "----Select----")
+            {
+                int itemID = Convert.ToInt32(itemDropDownList.SelectedValue);
+                Item item = itemSetupBll.GetReorderAndAmmount(itemID);
+                reorderLevelTextBox.Text = item.Reorder.ToString();
+                quantityTextBox.Text = item.StockIn.ToString();
+                IDHiddenField.Value = itemID.ToString();
+            }
+            
         }
 
         protected void stockInSaveButton_Click(object sender, EventArgs e)
@@ -62,5 +76,7 @@ namespace StockManagement.UI
                 stockQuantityTextBox.Text = null;
             }
         }
+
+      
     }
 }

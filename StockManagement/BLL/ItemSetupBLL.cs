@@ -42,5 +42,16 @@ namespace StockManagement.BLL
         {
             return itemSetupGateway.UpdateQuantity(item);
         }
+
+        public int StockOut(List<Item> items, string reason)
+        {
+            return itemSetupGateway.StockOut(items, reason);
+        }
+
+        public List<Item> GetSearchItems(int companyId, int categoryId)
+        {
+            return itemSetupGateway.GetSearchItems(companyId, categoryId);
+        }
+
     }
 }

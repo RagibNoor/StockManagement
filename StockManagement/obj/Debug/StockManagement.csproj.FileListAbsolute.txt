@@ -10,3 +10,4 @@ D:\projects\c# projects\StockManagement\StockManagement\bin\StockManagement.pdb
 D:\projects\c# projects\StockManagement\StockManagement\obj\Debug\StockManagement.dll
 D:\projects\c# projects\StockManagement\StockManagement\obj\Debug\StockManagement.pdb
 D:\projects\c# projects\StockManagement\StockManagement\obj\Debug\StockManagement.csprojResolveAssemblyReference.cache
+D:\projects\c# projects\StockManagement\StockManagement\bin\itextsharp.dll
