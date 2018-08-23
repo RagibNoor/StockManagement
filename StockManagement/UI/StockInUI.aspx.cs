@@ -56,10 +56,12 @@ namespace StockManagement.UI
         {
             if (itemDropDownList.SelectedItem.Text != "----Select----")
             {
+                
                 int itemID = Convert.ToInt32(itemDropDownList.SelectedValue);
+                int avaialableQuantity = itemSetupBll.GetQuantity(itemID);
                 Item item = itemSetupBll.GetReorderAndAmmount(itemID);
                 reorderLevelTextBox.Text = item.Reorder.ToString();
-                quantityTextBox.Text = item.StockIn.ToString();
+                quantityTextBox.Text =avaialableQuantity.ToString();
                 IDHiddenField.Value = itemID.ToString();
             }
             
@@ -70,7 +72,8 @@ namespace StockManagement.UI
             Item item = new Item();
             item.StockIn = Convert.ToInt32(quantityTextBox.Text) + Convert.ToInt32(stockQuantityTextBox.Text);
             item.ItemId = Convert.ToInt32(IDHiddenField.Value);
-            if (itemSetupBll.UpdateQuantity(item) > 0)
+            item.StockInDate = System.DateTime.Today.ToString("yyyy-MM-dd");
+            if (itemSetupBll.UpdateStockInQuantity(item) > 0)
             {
                 quantityTextBox.Text = item.StockIn.ToString();
                 stockQuantityTextBox.Text = null;

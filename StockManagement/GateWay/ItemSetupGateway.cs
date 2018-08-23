@@ -17,8 +17,8 @@ namespace StockManagement.GateWay
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
 
-            string query = "insert into Item_tbl(ItemName,CompanyID,CategoryID,Stockin,StockOut,Reorder) " +
-                           "values('" + item.ItemName + "','" + item.CompanyId + "','" + item.CategoryId + "'," + item.StockIn + "," + item.StockOut + "," + item.Reorder+")";
+            string query = "insert into Item_tbl(ItemName,CompanyID,CategoryID,Reorder) " +
+                           "values('" + item.ItemName + "','" + item.CompanyId + "','" + item.CategoryId + "'," + item.Reorder+")";
 
             SqlCommand cmd = new SqlCommand(query, con);
             int rowCount = cmd.ExecuteNonQuery();
@@ -26,6 +26,57 @@ namespace StockManagement.GateWay
             return rowCount;
         }
 
+        public int GetStockInQuantity(int itemID)
+        {
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "select sum(StockInquantity) from stockIn_tbl  where ItemId = " + itemID + " ";
+            SqlCommand cmd = new SqlCommand(query, con);
+            //SqlDataReader reader = cmd.ExecuteReader();
+            int stockInQuantity = 0;
+             
+            object value = cmd.ExecuteScalar();
+            if (!value.Equals(DBNull.Value))
+            {
+                stockInQuantity = (int)value;
+            }
+            //List<int> quantity = new List<int>();
+            //quantity.Add(stockInQuantity);
+            //while (reader.Read())
+            //{
+            //    stockInQuantity = (int) reader["StockInquantity"];
+            //    quantity.Add(stockInQuantity);
+            //}
+          //  reader.Close();
+            con.Close();
+            return stockInQuantity;
+
+        }
+        public int GetStockOutQuantity(int itemID)
+        {
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "select sum(StockOutQuantity) From stockOut_tbl where ItemId = " + itemID + "";
+            SqlCommand cmd = new SqlCommand(query, con);
+          //  SqlDataReader reader = cmd.ExecuteReader();
+            int StockOutQuantity = 0;
+            object value =  cmd.ExecuteScalar();
+            if (!value.Equals(DBNull.Value))
+            {
+                StockOutQuantity = (int) value;
+            }
+            //List<int> quantity = new List<int>();
+            //quantity.Add(StockOutQuantity);
+            //while (reader.Read())
+            //{
+            //    StockOutQuantity = (int)reader["StockOutQuantity"];
+            //    quantity.Add(StockOutQuantity);
+            //}
+            //reader.Close();
+            con.Close();
+            return StockOutQuantity;
+
+        }
         public int StockOut(List<Item> items , string reason)
         {
             int rowCount = 0;
@@ -43,11 +94,11 @@ namespace StockManagement.GateWay
             return rowCount;
         }
 
-        public int UpdateQuantity(Item item)
+        public int UpdateStockInQuantity(Item item)
         {
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
-            string query = "Update   Item_tbl set Stockin =" + item.StockIn + " where ItemID=" + item.ItemId;
+            string query = "Insert into  stockIn_tbl(ItemId,StockInquantity,Date) values ( "+item.ItemId+", "+item.StockIn+" , '"+item.StockInDate+"')";
             SqlCommand cmd = new SqlCommand(query, con);
 
             int rowCount = cmd.ExecuteNonQuery();
@@ -75,8 +126,6 @@ namespace StockManagement.GateWay
                 item.CategoryId = Convert.ToInt32(reader["CategoryID"].ToString());
                 item.CompanyId = Convert.ToInt32(reader["CompanyID"].ToString());
                 item.Reorder = (int)reader["Reorder"];
-                item.StockIn = (int)reader["StockIn"];
-                item.StockOut = (int)reader["StockOut"];
                 item.ItemId = (int) reader["ItemID"];
                
 
@@ -103,9 +152,9 @@ namespace StockManagement.GateWay
                 item.CategoryId = Convert.ToInt32(reader["CategoryID"].ToString());
                 item.CompanyId = Convert.ToInt32(reader["CompanyID"].ToString());
                 item.Reorder = (int)reader["Reorder"];
-                item.StockIn = (int)reader["StockIn"];
-                item.StockOut = (int)reader["StockOut"];
                 item.ItemId = (int)reader["ItemID"];
+                int availableQuantity = GetStockInQuantity(item.ItemId) - GetStockOutQuantity(item.ItemId);
+                item.AvilableQuantity = availableQuantity;
                 item.CompanyName = (string) reader["CompanyName"];
                 item.CategoryName = (string) reader["CategoryName"];
 
@@ -131,8 +180,6 @@ namespace StockManagement.GateWay
                 item.ItemName = reader["ItemName"].ToString();
                 
                 item.Reorder = (int)reader["Reorder"];
-                item.StockIn = (int)reader["StockIn"];
-                item.StockOut = (int)reader["StockOut"];
                 item.ItemId = (int)reader["ItemID"];
 
 

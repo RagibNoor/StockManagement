@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-8">
-                <asp:TextBox ID="reorderLevelTextBox" runat="server" Height="25px" ReadOnly="True" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="reorderLevelTextBox" runat="server" Height="25px" ReadOnly="True" CssClass="form-control" ></asp:TextBox>
             </div>
            
         </div>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="col-md-8">
-                 <asp:TextBox ID="stockQuantityTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+                 <asp:TextBox ID="stockQuantityTextBox" runat="server" CssClass="form-control  only-number" ></asp:TextBox>
             </div>
            
         </div>

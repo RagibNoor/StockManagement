@@ -57,7 +57,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Available Quantity">
                             <ItemTemplate>
-                                 <%#Eval("StockIn") %>
+                                 <%#Eval("AvilableQuantity") %>
                              </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Reorder Level">

@@ -4,6 +4,16 @@ $(document).ready(function() {
     $('.datepicker').datepicker({
         startDate: '-3000d'
     });
+
+    $(".only-number").keypress(function (e) {
+        console.log(e.which);
+        //if the letter is not digit then display error and don't type anything
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57 )) {
+            return false;
+        }
+    });
 });
+
+
 
 

@@ -19,5 +19,8 @@ namespace StockManagement.Model
         public string CompanyName { get; set; }
         public string CategoryName { get; set; }
         public string StockOutDate { get; set; }
+
+        public string StockInDate { get; set; }
+        public int  AvilableQuantity { get; set; }
     }
 }

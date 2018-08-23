@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-md-8">
-                 <asp:TextBox ID="stockOutQuantityTextBox" AutoPostBack="True" runat="server" CssClass="form-control" OnTextChanged="stockOutQuantityTextBox_TextChanged"></asp:TextBox>
+                 <asp:TextBox ID="stockOutQuantityTextBox" AutoPostBack="True" runat="server" CssClass="form-control only-number" OnTextChanged="stockOutQuantityTextBox_TextChanged"></asp:TextBox>
             </div>
            
         </div>

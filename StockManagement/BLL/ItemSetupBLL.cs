@@ -18,6 +18,20 @@ namespace StockManagement.BLL
             return categorySetupGateway.GetCategories();
         }
 
+        public int GetQuantity(int itemID)
+        {
+            int stockInQuantity = itemSetupGateway.GetStockInQuantity(itemID);
+            //foreach (var data in )
+            //{
+            //    stockInQuantity += data;
+            //}
+            int stockOutQuantity = itemSetupGateway.GetStockOutQuantity(itemID);
+            //foreach (var data in )
+            //{
+            //    stockOutQuantity += data;
+            //}
+            return stockInQuantity - stockOutQuantity;
+        }
         public List<Company> GetCompanies()
         {
             return companySetupGateway.GetCompanies();
@@ -38,9 +52,9 @@ namespace StockManagement.BLL
             return itemSetupGateway.AddItem(item);
         }
 
-        public int UpdateQuantity(Item item)
+        public int UpdateStockInQuantity(Item item)
         {
-            return itemSetupGateway.UpdateQuantity(item);
+            return itemSetupGateway.UpdateStockInQuantity(item);
         }
 
         public int StockOut(List<Item> items, string reason)

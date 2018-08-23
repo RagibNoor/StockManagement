@@ -41,9 +41,6 @@ namespace StockManagement.UI
             item.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
             item.CategoryId = Convert.ToInt32(categoryDropDownList.SelectedValue);
             item.Reorder = Convert.ToInt32(reorderTextBox.Text);
-            item.StockIn = 0;
-            item.StockOut = 0;
-
             if (itemSetupBll.AddItem(item)>0)
             {
                 Response.Write("<script>alert('Save');</script>");
