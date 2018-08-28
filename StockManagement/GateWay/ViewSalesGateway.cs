@@ -27,6 +27,7 @@ namespace StockManagement.GateWay
                 Item item = new Item();
                 item.ItemName = reader["ItemName"].ToString();
                 item.StockOut = Convert.ToInt32(reader["StockOutQuantity"].ToString());
+                item.ItemId = Convert.ToInt32(reader["ItemId"].ToString());
                
 
 

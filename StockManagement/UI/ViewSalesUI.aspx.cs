@@ -14,6 +14,7 @@ namespace StockManagement.UI
 {
     public partial class ViewSalesUI : System.Web.UI.Page
     {
+
         ViewSalesBLL viewSalesBll = new ViewSalesBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,8 +25,19 @@ namespace StockManagement.UI
         {
             string startDate = StartDate.Text;
             string endDate = EndDate.Text;
-            viewSearchItemGridView.DataSource = viewSalesBll.GetsellItem(startDate,endDate);
-            viewSearchItemGridView.DataBind();
+            //viewSearchItemGridView.DataSource = viewSalesBll.GetLessSellItem(startDate,endDate);
+            //viewSearchItemGridView.DataBind();
+            if (searchCheckBox.Checked)
+            {
+
+                viewSearchItemGridView.DataSource = viewSalesBll.GetsellItem(startDate, endDate);
+                viewSearchItemGridView.DataBind();
+            }
+            else
+            {
+                viewSearchItemGridView.DataSource = viewSalesBll.GetLessSellItem(startDate, endDate);
+                viewSearchItemGridView.DataBind();
+            }
         }
 
         protected void DownloadBtn_Click(object sender, EventArgs e)
@@ -54,5 +66,8 @@ namespace StockManagement.UI
             /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
                server control at run time. */
         }
+
+
+        
     }
 }

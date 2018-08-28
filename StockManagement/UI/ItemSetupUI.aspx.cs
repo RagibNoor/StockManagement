@@ -40,11 +40,21 @@ namespace StockManagement.UI
             item.ItemName = itemNameTextBox.Text;
             item.CompanyId = Convert.ToInt32(companyDropDownList.SelectedValue);
             item.CategoryId = Convert.ToInt32(categoryDropDownList.SelectedValue);
-            item.Reorder = Convert.ToInt32(reorderTextBox.Text);
-            if (itemSetupBll.AddItem(item)>0)
+            int reorder;
+            if (int.TryParse(reorderTextBox.Text, out reorder))
             {
-                Response.Write("<script>alert('Save');</script>");
+                item.Reorder = reorder;
+                if (itemSetupBll.AddItem(item) > 0)
+                {
+                    Response.Write("<script>alert('Save');</script>");
+                }
             }
+            else
+            {
+                Response.Write("<script>alert('Reorder must be a number');</script>");
+            }
+            //item.Reorder = Convert.ToInt32(reorderTextBox.Text);
+           
         }
     }
 }

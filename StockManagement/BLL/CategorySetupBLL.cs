@@ -38,6 +38,10 @@ namespace StockManagement.BLL
 
         public int Update(Category category)
         {
+            if (categorySetupGateway.IsExsit(category.CategoryName))
+            {
+                return 0;
+            }
             return categorySetupGateway.Update(category);
         }
     }

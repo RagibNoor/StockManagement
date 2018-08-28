@@ -25,10 +25,11 @@ namespace StockManagement.UI
                     companyDropDownList_SelectedIndexChanged(sender, e);
                     companyHiddenField.Value = Request.Form[companyDropDownList.UniqueID];
                 }
+                stockInSaveButton.Enabled = false;
             }
 
            
-            ;
+
         }
 
         protected void companyDropDownList_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace StockManagement.UI
                 reorderLevelTextBox.Text = item.Reorder.ToString();
                 quantityTextBox.Text =avaialableQuantity.ToString();
                 IDHiddenField.Value = itemID.ToString();
+                stockInSaveButton.Enabled = true;
             }
             
         }
@@ -70,14 +72,24 @@ namespace StockManagement.UI
         protected void stockInSaveButton_Click(object sender, EventArgs e)
         {
             Item item = new Item();
-            item.StockIn = Convert.ToInt32(quantityTextBox.Text) + Convert.ToInt32(stockQuantityTextBox.Text);
+             
             item.ItemId = Convert.ToInt32(IDHiddenField.Value);
             item.StockInDate = System.DateTime.Today.ToString("yyyy-MM-dd");
-            if (itemSetupBll.UpdateStockInQuantity(item) > 0)
+            int stockQuantity;
+            if (int.TryParse(stockQuantityTextBox.Text, out stockQuantity))
             {
-                quantityTextBox.Text = item.StockIn.ToString();
-                stockQuantityTextBox.Text = null;
+                item.StockIn = Convert.ToInt32(quantityTextBox.Text) + stockQuantity;
+                if (itemSetupBll.UpdateStockInQuantity(item) > 0)
+                {
+                    quantityTextBox.Text = item.StockIn.ToString();
+                    stockQuantityTextBox.Text = null;
+                }
             }
+            else
+            {
+                Response.Write("<script>alert('Quantity must be integer');</script>");
+            }
+           
         }
 
       

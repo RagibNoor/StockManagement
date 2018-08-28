@@ -27,10 +27,14 @@
         </div>
          <br/>
         <div class="row">
-             <div class="col-md-12 text-right">
+            <div class="col-md-4">
+               <asp:CheckBox ID="searchCheckBox" runat="server"  /> More details 
+            </div>
+             <div class="col-md-8 text-right">
                  <asp:Button ID="viewSearchItemButton" runat="server" Text="Search" CssClass="btn btn-primary " OnClick="viewSearchItemButton_Click" />
             </div>
         </div>
+        
         <div class="row">
              <div class="col-md-12 text-right">
                  <asp:GridView ID="viewSearchItemGridView" runat="server" AutoGenerateColumns="False" Width="504px">

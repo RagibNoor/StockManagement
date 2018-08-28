@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('.datepicker').datepicker({
         startDate: '-3000d'
     });
+    $('#body_viewSearchItemGridView').DataTable();
 
     $(".only-number").keypress(function (e) {
         console.log(e.which);

@@ -40,6 +40,15 @@ namespace StockManagement.UI {
         protected global::System.Web.UI.WebControls.TextBox EndDate;
         
         /// <summary>
+        /// searchCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox searchCheckBox;
+        
+        /// <summary>
         /// viewSearchItemButton control.
         /// </summary>
         /// <remarks>

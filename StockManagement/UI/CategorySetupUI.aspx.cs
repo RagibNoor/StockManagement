@@ -74,6 +74,10 @@ namespace StockManagement.UI
                 {
                     Response.Write("<script>alert('updated');</script>");
                 }
+                else
+                {
+                    Response.Write("<script>alert('Name already exist');</script>");
+                }
             }
 
            
