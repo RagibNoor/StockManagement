@@ -9,6 +9,7 @@ using StockManagement.BLL;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
+using StockManagement.Model;
 
 namespace StockManagement.UI
 {
@@ -20,6 +21,7 @@ namespace StockManagement.UI
         {
             if (!IsPostBack)
             {
+                
                 companyDropDownList.DataSource = itemSetupBll.GetCompanies();
                 companyDropDownList.DataTextField = "CompanyName";
                 companyDropDownList.DataValueField = "CompanyId";

@@ -18,12 +18,31 @@ namespace StockManagement.GateWay
             con.Open();
 
             string query = "insert into Item_tbl(ItemName,CompanyID,CategoryID,Reorder) " +
-                           "values('" + item.ItemName + "','" + item.CompanyId + "','" + item.CategoryId + "'," + item.Reorder+")";
+                           "values(@ItemName,'" + item.CompanyId + "','" + item.CategoryId + "'," + item.Reorder+")";
 
             SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("ItemName", item.ItemName);
             int rowCount = cmd.ExecuteNonQuery();
             con.Close();
             return rowCount;
+        }
+        public bool IsExsit(string itemName)
+        {
+            //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-NQGNJQ07\SQLEXPRESS;Initial Catalog=StockManagement;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "select * from  Item_tbl where ItemName = @itemName";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("itemName", itemName);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                return true;
+            }
+            return false;
+
         }
 
         public int GetStockInQuantity(int itemID)
@@ -140,7 +159,25 @@ namespace StockManagement.GateWay
         {
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
-            string query = "select * from  ItemAllInfo where CompanyID ='" + companyId + "' and CategoryId='"+categoryId+"'";
+            string query;
+            if (companyId == 0 && categoryId == 0)
+            {
+                query = "select * from  ItemAllInfo ";
+            }
+            else if (companyId==0)
+            {
+                 query = "select * from  ItemAllInfo where CategoryId='" + categoryId + "'";
+            }
+            else if (categoryId==0)
+            {
+                query = "select * from  ItemAllInfo where CompanyID ='" + companyId + "'";
+                
+            }
+            else
+            {
+                query = "select * from  ItemAllInfo where CompanyID ='" + companyId + "' and CategoryId='" + categoryId + "'";
+            }
+            
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Item> items = new List<Item>();

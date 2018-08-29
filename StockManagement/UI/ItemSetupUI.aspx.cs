@@ -44,10 +44,8 @@ namespace StockManagement.UI
             if (int.TryParse(reorderTextBox.Text, out reorder))
             {
                 item.Reorder = reorder;
-                if (itemSetupBll.AddItem(item) > 0)
-                {
-                    Response.Write("<script>alert('Save');</script>");
-                }
+                Response.Write("<script>alert('"+itemSetupBll.AddItem(item)+"');</script>");
+                
             }
             else
             {

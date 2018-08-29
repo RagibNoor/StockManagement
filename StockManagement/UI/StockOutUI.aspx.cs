@@ -83,40 +83,58 @@ namespace StockManagement.UI
             {
                 items = (List<Item>) ViewState["itemList"];
             }
-            foreach (var itemID in items)
+
+            int stockOutQuantity;
+            if (int.TryParse(stockOutQuantityTextBox.Text, out stockOutQuantity))
             {
-                if (itemID.ItemId == Convert.ToInt32(IDHiddenField.Value))
+                if (stockOutQuantity>0)
                 {
-                    itemID.StockOut += Convert.ToInt32(stockOutQuantityTextBox.Text);
-                    flag = 1;
+                    foreach (var itemID in items)
+                    {
+                        if (itemID.ItemId == Convert.ToInt32(IDHiddenField.Value))
+                        {
+                            itemID.StockOut += Convert.ToInt32(stockOutQuantityTextBox.Text);
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 0)
+                    {
+                        item.ItemName = itemDropDownList.SelectedItem.Text;
+                        item.ItemId = Convert.ToInt32(IDHiddenField.Value);
+                        item.CompanyName = companyDropDownList.SelectedItem.Text;
+                        item.StockOutDate = System.DateTime.Today.ToString("yyyy-MM-dd");
+                        item.StockOut = Convert.ToInt32(stockOutQuantityTextBox.Text);
+                        int availableQuantity = Convert.ToInt32(quantityTextBox.Text);
+                        item.StockIn = availableQuantity - item.StockOut;
+
+                        items.Add(item);
+                    }
+
+                    //if (itemSetupBll.UpdateQuantity(item) > 0)
+                    //{
+                    //    quantityTextBox.Text = item.StockIn.ToString();
+                    //    stockOutQuantityTextBox.Text = null;
+                    //}
+
+                    ViewState["itemList"] = items;
+
+                    stockOutGridView.DataSource = items;
+                    stockOutGridView.DataBind();
+                    sellButton.Enabled = true;
+                    damageButton.Enabled = true;
+                    lostButton.Enabled = true;
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid input');</script>");
                 }
             }
-            if (flag == 0)
+
+            else
             {
-                item.ItemName = itemDropDownList.SelectedItem.Text;
-                item.ItemId = Convert.ToInt32(IDHiddenField.Value);
-                item.CompanyName = companyDropDownList.SelectedItem.Text;
-                item.StockOutDate = System.DateTime.Today.ToString("yyyy-MM-dd");
-                item.StockOut = Convert.ToInt32(stockOutQuantityTextBox.Text);
-                int availableQuantity = Convert.ToInt32(quantityTextBox.Text);
-                item.StockIn = availableQuantity - item.StockOut;
-
-                items.Add(item);
+                Response.Write("<script>alert('Stock out quantity must be an integer');</script>");
             }
-            
-            //if (itemSetupBll.UpdateQuantity(item) > 0)
-            //{
-            //    quantityTextBox.Text = item.StockIn.ToString();
-            //    stockOutQuantityTextBox.Text = null;
-            //}
-         
-            ViewState["itemList"] = items;
-
-            stockOutGridView.DataSource = items;
-            stockOutGridView.DataBind();
-            sellButton.Enabled = true;
-            damageButton.Enabled = true;
-            lostButton.Enabled = true;
+           
 
         }
 

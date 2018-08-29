@@ -18,8 +18,10 @@ namespace StockManagement.GateWay
             SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
 
-            string query = "insert into Category_tbl(CategoryName) values('" + category.CategoryName + "')";
+            string query = "insert into Category_tbl(CategoryName) values(@CategoryName)";
             SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("CategoryName", category.CategoryName);
             int rowCount = cmd.ExecuteNonQuery();
             con.Close();
             return rowCount;
@@ -29,8 +31,10 @@ namespace StockManagement.GateWay
         {
             SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-NQGNJQ07\SQLEXPRESS;Initial Catalog=StockManagement;Integrated Security=True");
             con.Open();
-            string query = "select * from  Category_tbl where CategoryName = '" + categoryName + "'";
+            string query = "select * from  Category_tbl where CategoryName = @CategoryName";
             SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("CategoryName", categoryName);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {

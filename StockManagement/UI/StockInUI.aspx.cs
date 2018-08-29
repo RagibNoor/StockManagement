@@ -78,12 +78,20 @@ namespace StockManagement.UI
             int stockQuantity;
             if (int.TryParse(stockQuantityTextBox.Text, out stockQuantity))
             {
-                item.StockIn = Convert.ToInt32(quantityTextBox.Text) + stockQuantity;
-                if (itemSetupBll.UpdateStockInQuantity(item) > 0)
+                if (stockQuantity > 0)
                 {
-                    quantityTextBox.Text = item.StockIn.ToString();
-                    stockQuantityTextBox.Text = null;
+                    item.StockIn = Convert.ToInt32(quantityTextBox.Text) + stockQuantity;
+                    if (itemSetupBll.UpdateStockInQuantity(item) > 0)
+                    {
+                        quantityTextBox.Text = item.StockIn.ToString();
+                        stockQuantityTextBox.Text = null;
+                    }  
                 }
+                else
+                {
+                    Response.Write("<script>alert('Invalid input');</script>");
+                }
+               
             }
             else
             {

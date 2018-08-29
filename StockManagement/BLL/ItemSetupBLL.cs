@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using iTextSharp.text;
 using StockManagement.GateWay;
 using StockManagement.Model;
 
@@ -15,7 +16,19 @@ namespace StockManagement.BLL
 
         public List<Category> GetCategories()
         {
-            return categorySetupGateway.GetCategories();
+            List<Category> categories = categorySetupGateway.GetCategories();
+            List<Category> newCategories = new List<Category>();
+            Category aCategory = new Category();
+            aCategory.CategoryName = "Select All";
+            aCategory.CategoryId = 0;
+            newCategories.Add(aCategory);
+
+            foreach (var categori in categories)
+            {
+                newCategories.Add(categori);
+            }
+
+            return newCategories;
         }
 
         public int GetQuantity(int itemID)
@@ -34,7 +47,17 @@ namespace StockManagement.BLL
         }
         public List<Company> GetCompanies()
         {
-            return companySetupGateway.GetCompanies();
+            List<Company> companies = companySetupGateway.GetCompanies();
+            List<Company> newCompanies = new List<Company>();
+            Company aCompany = new Company();
+            aCompany.CompanyName = "Select All";
+            aCompany.CompanyId = 0;
+            newCompanies.Add(aCompany);
+            foreach (var company in companies)
+            {
+                newCompanies.Add(company);
+            }
+            return newCompanies;
         }
 
         public List<Item> GetItems(string company)
@@ -47,9 +70,25 @@ namespace StockManagement.BLL
             return itemSetupGateway.GetReorderAndAmmount(ItemID);
         }
 
-        public int AddItem(Item item)
+        public string AddItem(Item item)
         {
-            return itemSetupGateway.AddItem(item);
+            if (itemSetupGateway.IsExsit(item.ItemName))
+            {
+                return "already exist";
+            }
+            else
+            {
+                if (itemSetupGateway.AddItem(item) > 0)
+                {
+                    return "save";
+                }
+
+                else
+                {
+                    return "Invalid";
+                }
+            }
+          
         }
 
         public int UpdateStockInQuantity(Item item)
