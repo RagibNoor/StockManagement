@@ -22,7 +22,7 @@ namespace StockManagement.UI
             if (!IsPostBack)
             {
                 
-                companyDropDownList.DataSource = itemSetupBll.GetCompanies();
+                companyDropDownList.DataSource = itemSetupBll.GetCompaniesSearch();
                 companyDropDownList.DataTextField = "CompanyName";
                 companyDropDownList.DataValueField = "CompanyId";
                 companyDropDownList.DataBind();
@@ -38,7 +38,7 @@ namespace StockManagement.UI
 
         protected void companyDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            categoryDropDownList.DataSource = itemSetupBll.GetCategories();
+            categoryDropDownList.DataSource = itemSetupBll.GetCategoriesSearch();
             categoryDropDownList.DataTextField = "CategoryName";
             categoryDropDownList.DataValueField = "CategoryId";
             categoryDropDownList.DataBind();

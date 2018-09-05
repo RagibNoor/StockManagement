@@ -16,6 +16,11 @@ namespace StockManagement.BLL
 
         public List<Category> GetCategories()
         {
+             return  categorySetupGateway.GetCategories();
+            
+        }
+        public List<Category> GetCategoriesSearch()
+        {
             List<Category> categories = categorySetupGateway.GetCategories();
             List<Category> newCategories = new List<Category>();
             Category aCategory = new Category();
@@ -30,7 +35,6 @@ namespace StockManagement.BLL
 
             return newCategories;
         }
-
         public int GetQuantity(int itemID)
         {
             int stockInQuantity = itemSetupGateway.GetStockInQuantity(itemID);
@@ -47,6 +51,11 @@ namespace StockManagement.BLL
         }
         public List<Company> GetCompanies()
         {
+            return companySetupGateway.GetCompanies();
+            
+        }
+        public List<Company> GetCompaniesSearch()
+        {
             List<Company> companies = companySetupGateway.GetCompanies();
             List<Company> newCompanies = new List<Company>();
             Company aCompany = new Company();
@@ -59,7 +68,6 @@ namespace StockManagement.BLL
             }
             return newCompanies;
         }
-
         public List<Item> GetItems(string company)
         {
             return itemSetupGateway.GeItems(company);

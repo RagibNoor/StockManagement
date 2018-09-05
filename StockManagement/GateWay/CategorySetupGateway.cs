@@ -29,7 +29,8 @@ namespace StockManagement.GateWay
 
         public bool IsExsit(string categoryName)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-NQGNJQ07\SQLEXPRESS;Initial Catalog=StockManagement;Integrated Security=True");
+           // SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-NQGNJQ07\SQLEXPRESS;Initial Catalog=StockManagement;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConnectinString);
             con.Open();
             string query = "select * from  Category_tbl where CategoryName = @CategoryName";
             SqlCommand cmd = new SqlCommand(query, con);
